@@ -1,26 +1,44 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function Balance({gastos, saldo}) {
+    const [showValue, setShowValue] = useState(false);
  return (
-    <View style={style.conteiner}>
+    
+    <TouchableOpacity style={style.conteiner} onPress={()=> setShowValue(!showValue)}>
+
+    
+<View style={style.item}>
+            <Text style={style.itemTitle}>Saldo</Text>
+            {showValue ?(
+                <View style={style.content}>
+                
+                    <Text style={style.currencySymbol}>R$</Text>
+                    <Text style={style.balance}>{saldo}</Text>
+                </View> 
+                   
+                ) : (
+                    <View style={style.skeleton}>
+                    </View> 
+
+                )}    
+                       
+</View>                        
         
         <View style={style.item}>
-            <Text style={style.itemTitle}>Saldo</Text>
-                <View style={style.content}>
-                    <Text style={style.currencySymbol}>R$</Text>
-                    <Text style={style.balance}>{saldo}</Text>   
-                </View>        
-        </View>
-        <View style={style.item}>
             <Text style={style.itemTitle}>Gastos</Text>
+            {showValue ?(
                 <View style={style.content}>
                     <Text style={style.currencySymbol}>R$</Text>
                     <Text style={style.expenses}>{gastos}</Text>   
-                </View>        
+                </View> 
+            ) : ( 
+                <View style={style.skeleton}>
+                </View> 
+            )}               
         </View>
 
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -64,5 +82,12 @@ const style = StyleSheet.create({
     expenses:{
         fontSize: 17,
         color: "#FF0000"
+    },
+    skeleton:{
+        marginTop: 6,
+        width: 60,
+        height: 10,
+        backgroundColor:"#DADADA"
     }
+
 })
