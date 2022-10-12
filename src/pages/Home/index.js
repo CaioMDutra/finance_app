@@ -8,14 +8,14 @@ import Actions from '../../componentes/Actions';
 const list = [
 {
     id: 1,
-    label: "Boleto condominio",
-    value: "286,64",
+    label: "Boleto faculdade",
+    value: "867,23",
     date:  "03/10/2022",
     type: 0
 },
 {
     id: 2,
-    label: "Pix recebido de Stephanie",
+    label: "Pix recebido",
     value: "750,00",
     date:  "04/10/2022",
     type: 1
@@ -23,7 +23,7 @@ const list = [
 },
 {
     id: 3,
-    label: "Conta Claro",
+    label: "Conta de Luz",
     value: "202,54",
     date:  "06/10/2022",
     type: 0
@@ -34,9 +34,9 @@ const list = [
 export default function Home() {
   return (
     <View style={style.container}>
-        <Header name="Caio de Macedo Dutra"/>
+        <Header name="Caio Dutra"/>
         
-        <Balance saldo="780.348,93" gastos="-528,56"/>
+        <Balance saldo="14,93" gastos="-528,56"/>
 
         <Actions/>
 
